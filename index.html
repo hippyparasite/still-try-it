@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171b32">
+  <meta name="description" content="Try Still, a quiet journal for your thoughts. Download the Android app, start with an empty journal, and explore at your own pace.">
+  <title>Download Still for Android · Still — Try Me</title>
+  <style>
+    :root { color-scheme: dark; --ink: #f7f0ee; --muted: #c7c6d8; --faint: #aaaac0; --line: #ffffff24; --peach: #f3d7ca; }
+    * { box-sizing: border-box; }
+    html { min-width: 280px; background: #171b32; }
+    body { position: relative; min-height: 100vh; margin: 0; color: var(--ink); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    .water { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: linear-gradient(155deg, #121a2d 0%, #242840 58%, #383249 100%); }
+    .water::before { content: ""; position: absolute; width: 110%; height: 88%; bottom: -54%; left: -35%; border-radius: 44% 62% 0 0; transform: rotate(-18deg); background: radial-gradient(ellipse at 50% 0%, #a28cbf70, #8b719c38 58%, transparent 72%); }
+    .water::after { content: ""; position: absolute; width: 100%; height: 90%; bottom: -56%; right: -34%; border-radius: 50% 46% 0 0; transform: rotate(22deg); background: radial-gradient(ellipse at 35% 0%, #dda8a866, #c2a2b03d 55%, transparent 73%); }
+    .light { position: absolute; inset: 0; background: radial-gradient(ellipse at 92% 72%, #8ca2bd24, transparent 48%), radial-gradient(ellipse at 2% 50%, #b1a5c617, transparent 50%); }
+    main { position: relative; z-index: 1; width: min(100% - 48px, 640px); margin: 0 auto; padding: 44px 0 48px; }
+    .wordmark { margin: 0; font: 30px/1 Georgia, "Times New Roman", serif; letter-spacing: -.04em; }
+    .wordmark span { display: inline-block; width: 8px; height: 8px; border: 1px solid #efcfbe9c; border-radius: 50%; vertical-align: top; margin: 2px 0 0 5px; }
+    .hero { padding: 56px 0 36px; }
+    .eyebrow { color: var(--muted); text-transform: uppercase; letter-spacing: .16em; font-size: 11px; font-weight: 650; margin: 0 0 15px; }
+    h1 { font: 400 clamp(46px, 8.4vw, 67px)/1.06 Georgia, "Times New Roman", serif; letter-spacing: -.04em; margin: 0 0 22px; }
+    .intro { max-width: 475px; color: var(--muted); font-size: 18px; line-height: 1.6; margin: 0 0 26px; }
+    .download { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 60px; border-radius: 18px; padding: 14px 23px; background: var(--peach); color: #292335; text-decoration: none; font-size: 17px; font-weight: 720; box-shadow: 0 4px 25px #00000012; transition: background-color .15s, box-shadow .15s; }
+    .download:hover { background: #ffe6d9; box-shadow: 0 4px 26px #00000024; }
+    .download svg { flex: 0 0 20px; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid #d8d5ff; outline-offset: 6px; }
+    .file-name { display: block; margin: 11px 0 5px; color: var(--muted); font-size: 11px; letter-spacing: .04em; overflow-wrap: anywhere; }
+    .compatibility { color: var(--faint); font-size: 13px; margin: 0; }
+    section { border-top: 1px solid var(--line); padding-top: 27px; }
+    h2 { margin: 0 0 24px; font: 400 28px/1.2 Georgia, "Times New Roman", serif; letter-spacing: -.025em; }
+    .steps { list-style: none; padding: 0; margin: 0; counter-reset: steps; }
+    .steps li { position: relative; counter-increment: steps; padding: 0 0 25px 45px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+    .steps li::before { content: counter(steps); position: absolute; top: 2px; left: 0; width: 27px; height: 27px; border: 1px solid #e1cfdd55; border-radius: 50%; display: grid; place-items: center; color: #f3ddd8; font-size: 12px; }
+    .steps strong { display: block; font-size: 16px; color: var(--ink); font-weight: 620; margin-bottom: 3px; }
+    .steps b { font-weight: 600; color: #e5dfe9; }
+    .note { color: var(--faint); font-size: 12px; line-height: 1.65; margin: 0 0 28px 45px; }
+    details { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 20px 0; }
+    summary { cursor: pointer; font-size: 15px; color: #e7dfe7; }
+    .details-copy { padding-top: 14px; color: var(--muted); font-size: 14px; }
+    .details-copy p { margin: 0 0 13px; }
+    .details-copy p:last-child { margin-bottom: 0; }
+    .closing { color: var(--muted); font-size: 14px; margin: 29px 0 0; }
+    footer { margin-top: 28px; color: var(--faint); font-size: 11px; }
+    footer a { color: inherit; text-underline-offset: 3px; }
+    @media (max-width: 420px) {
+      main { position: relative; z-index: 1; width: calc(100% - 40px); padding-top: 30px; }
+      .hero { padding-top: 43px; }
+      .intro { font-size: 16px; }
+      .download { display: flex; padding: 14px 12px; font-size: 15px; gap: 9px; }
+      .steps li { padding-left: 39px; }
+      .note { margin-left: 39px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .download { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="water" aria-hidden="true"><div class="light"></div></div>
+  <main>
+    <p class="wordmark" aria-label="Still">still<span aria-hidden="true"></span></p>
+    <header class="hero">
+      <p class="eyebrow">A first look · Android app</p>
+      <h1>A little space<br>for your thoughts.</h1>
+      <p class="intro">Try Still, a quiet place to record a moment and explore the questions it brings. Your journal starts empty. No account needed.</p>
+      <a class="download" href="./INSTALL-STILL-ON-ANDROID.apk" download="INSTALL-STILL-ON-ANDROID.apk">
+        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" aria-hidden="true"><path d="M10 2v11m-4-4 4 4 4-4M3 15v4h14v-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download Still for Android
+      </a>
+      <span class="file-name">INSTALL-STILL-ON-ANDROID.apk</span>
+      <p class="compatibility">For Android phones. This download won’t work on an iPhone.</p>
+    </header>
+    <section aria-labelledby="install-heading">
+      <h2 id="install-heading">Three small steps.</h2>
+      <ol class="steps">
+        <li><strong>Download on your phone.</strong>Open this page on your Android phone and tap the download button above.</li>
+        <li><strong>Open the file and tap Install.</strong>Find <b>INSTALL-STILL-ON-ANDROID.apk</b> in your browser’s downloads. If Android asks, allow this browser to install the app.</li>
+        <li><strong>Open Still — Try Me.</strong>Tap <b>Open</b>, or find <b>Still — Try Me</b> on your phone. Follow the introduction and try a made-up moment.</li>
+      </ol>
+      <p class="note">This is an early test version downloaded outside the Play Store, so Android may ask you to confirm the download or installation. Keep Play Protect switched on.</p>
+    </section>
+    <details>
+      <summary>A few things to know before trying it</summary>
+      <div class="details-copy">
+        <p>This is a fresh journal with no one else’s notes or recordings. The introduction includes a clearly labelled fictional example. A moment you write and save is kept in your own journal.</p>
+        <p>You can try writing, voice notes and the guided example without downloading an AI model. Live AI questions aren’t set up in this download; those need a separate model.</p>
+        <p>Saved moments stay on your device. Personal Lab recording starts off. Optional speech-to-text asks for your consent and may use your phone’s speech service to process audio.</p>
+        <p>The app supports ARM64 Android phones running Android 6 or later. If your phone says it isn’t compatible, there’s no need to change any security settings.</p>
+      </div>
+    </details>
+    <p class="closing">What felt clear? What felt confusing? That’s the feedback we’re looking for.</p>
+    <footer>Still · A first look for friends · <a href="./THIRD-PARTY-NOTICES.txt">Third-party notices</a></footer>
+  </main>
+</body>
+</html>
